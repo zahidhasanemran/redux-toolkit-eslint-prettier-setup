@@ -55,7 +55,7 @@ const CocktailList = () => {
               <div className="card h-2">
                 <img src={image} alt={name} className="card-img-top" />
                 <div className="card-body" style={{ textAlign: "left" }}>
-          <h6 className="card-title">{name}</h6>
+                  <h6 className="card-title">{name}</h6>
                   <h5 className="card-title">{glass}</h5>
 
                   <p className="card-text">{info}</p>
