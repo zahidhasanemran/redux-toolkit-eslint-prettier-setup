@@ -1,4 +1,4 @@
-<!-- HOW TO SETUP REDUX TOOLKIT -->
+<h2>HOW TO SETUP REDUX TOOLKIT</h2>
 <ul>
   <li>Create redux folder in root</li>
   <li>Create features folder</li>
@@ -7,3 +7,22 @@
   <li>Config store.js</li>
   <li>Config provider in index.js file</li>
 </ul>
+
+<h2>SHOW COCKTAIL LIST</h2>
+<ul>
+  <li>import { useDispatch, useSelector } from "react-redux";</li>
+  <li>import { fetchCoctails } from "../redux/features/cocktailSlice";</li>
+  <li>const { coctails, loading } = useSelector((state) => state.app);</li>
+  <li>const dispatch = useDispatch();</li>
+  <li>dispatch fetchCoctails inside useEffect hook with empty []</li>
+  <li>handle loading screen</li>
+  <li>handle no-data screen</li>
+</ul>
+
+<!-- 
+
+  1. React 18 useTransiton to check debounce in input
+  2. Write test code with jest and react testing library
+  3. write test code with cypress 
+
+ -->

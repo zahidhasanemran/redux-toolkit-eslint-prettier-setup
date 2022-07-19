@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { fetchSearchCocktail } from "../redux/features/cocktailSlice";
+import { fetchSerachCoctail } from "../redux/features/cocktailSlice";
 import { useDispatch } from "react-redux";
 import "./SearchInput.css";
 
@@ -8,8 +8,8 @@ const SearchInput = () => {
   const dispatch = useDispatch();
 
   const handleChange = () => {
-    const searchText = searchValue.current.value;
-    dispatch(fetchSearchCocktail({ searchText }));
+    const text = searchValue.current.value;
+    dispatch(fetchSerachCoctail({ text }));
   };
 
   const handleSubmit = (e) => {

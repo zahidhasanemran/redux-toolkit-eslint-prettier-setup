@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCocktails } from "../redux/features/cocktailSlice";
+import { fetchCoctails } from "../redux/features/cocktailSlice";
 import { Link } from "react-router-dom";
 
 const CocktailList = () => {
-  const { cocktails, loading } = useSelector((state) => ({ ...state.app }));
+  const { coctails, loading } = useSelector((state) => state.app);
   const [modifiedCocktail, setModifiedCocktail] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCocktails());
+    dispatch(fetchCoctails());
   }, []);
 
   useEffect(() => {
-    if (cocktails) {
-      const newCocktails = cocktails.map((item) => {
+    if (coctails) {
+      const newCocktails = coctails.map((item) => {
         const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
           item;
         return {
@@ -29,7 +29,9 @@ const CocktailList = () => {
     } else {
       setModifiedCocktail([]);
     }
-  }, [cocktails]);
+  }, [coctails]);
+
+  // console.log(cocktails);
 
   if (loading) {
     return (
@@ -39,7 +41,7 @@ const CocktailList = () => {
     );
   }
 
-  if (!cocktails) {
+  if (!coctails) {
     return <h2>No Cocktails matched your search criteria</h2>;
   }
 

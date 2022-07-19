@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchSingleCocktail } from "../redux/features/cocktailSlice";
+import { fetchSingleCoctail } from "../redux/features/cocktailSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const SingleCocktail = () => {
-  const { cocktail, loading } = useSelector((state) => ({ ...state.app }));
+  const { coctail, loading } = useSelector((state) => state.app);
   const [modifiedCocktail, setModifiedCocktail] = useState([]);
   const dispatch = useDispatch();
   const { id } = useParams();
   useEffect(() => {
-    dispatch(fetchSingleCocktail({ id }));
+    dispatch(fetchSingleCoctail({ id }));
   }, [id]);
 
   useEffect(() => {
-    if (cocktail.length > 0) {
+    if (coctail.length > 0) {
       const {
         strDrink: name,
         strDrinkThumb: image,
@@ -26,7 +26,7 @@ const SingleCocktail = () => {
         strIngredient3,
         strIngredient4,
         strIngredient5,
-      } = cocktail[0];
+      } = coctail[0];
       const ingredients = [
         strIngredient1,
         strIngredient2,
@@ -34,7 +34,7 @@ const SingleCocktail = () => {
         strIngredient4,
         strIngredient5,
       ];
-      console.log("ingredients", ingredients);
+      // console.log("ingredients", ingredients);
       const newCocktail = {
         name,
         image,
@@ -48,7 +48,7 @@ const SingleCocktail = () => {
     } else {
       setModifiedCocktail(null);
     }
-  }, [id, cocktail]);
+  }, [id, coctail]);
 
   if (!modifiedCocktail) {
     return <h2 className="section-title">No Cocktail to Display</h2>;
@@ -90,9 +90,10 @@ const SingleCocktail = () => {
                 </p>
                 <p>
                   <span className="drink-data">Ingredients: </span>
-                  {ingredients && ingredients.map((item, index) => {
-                    return item ? <span key={index}>{item}</span> : null;
-                  })}
+                  {ingredients &&
+                    ingredients.map((item, index) => {
+                      return item ? <span key={index}>{item}</span> : null;
+                    })}
                 </p>
               </div>
             </div>
