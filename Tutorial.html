@@ -19,6 +19,59 @@
   <li>handle no-data screen</li>
 </ul>
 
+<h2>Setup Eslint and prettier</h2>
+<ul>
+  <li>npm install eslint --save-dev</li>
+  <li>npx eslint --init</li>
+  <li>select the options in terminal</li>
+  <li>it will do rest</li>
+  <li>or</li>
+  <li>
+    Linters usually contain not only code quality rules, but also stylistic
+    rules. Most stylistic rules are unnecessary when using Prettier, but worse –
+    they might conflict with Prettier! so to use them both safely we had to
+    install eslint-config-prettier dependency
+  </li>
+  <li>npm install --save-dev eslint-config-prettier</li>
+  <li>
+    eslint-config-prettier: Turns off all eslint rules that are unnecessary or
+    might conflict with Prettier. to make sure that eslint only check code
+    syntax style while Prettier check code formatting
+  </li>
+  <li>
+    to configure eslint-config-prettier in your .eslintrc.json extent prettier
+    add it as last like following
+  </li>
+  <li>"extends": ["plugin:react/recommended", "airbnb", "prettier"],</li>
+  <li>
+    add to package.json "lint": "eslint . --fix --max-warnings=0": this script
+    runs eslint from the root folder and auto fix error and checks that we don't
+    have any warning
+  </li>
+  <li>
+    add to package.json "format": "prettier . --write": this script will run
+    prettier from the root folder and auto fix format errors
+  </li>
+  <li>
+    we will be using Husky to run ESlint and Prettier as our pre-commit hook so
+    that no one will be able to commit when their code doesn't follow our rules.
+    creating pre-commit and configuring Husky can be challenging to set up and
+    share across the team therefore we will be using a tool called lint-staged
+    that installs Husky and set up everything for you and you only specify
+    scripts to run on every commit the best part is that with lint-staged we
+    save time by only checking staged(changed) files since we don't want to
+    check in every file if we didn't edit them Make sure your folder is a git
+    directory run the following command to install lint-staged
+  </li>
+  <li>npx mrm@2 lint-staged</li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
 <!-- 
 
   1. React 18 useTransiton to check debounce in input
