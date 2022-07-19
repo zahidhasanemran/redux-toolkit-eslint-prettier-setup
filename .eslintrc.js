@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
+    "no-undef": "off",
     "linebreak-style": "off",
     indent: ["error", 2],
     quotes: ["error", "double"],

@@ -57,7 +57,8 @@ const CocktailList = () => {
                 <div className="card-body" style={{ textAlign: "left" }}>
                   <h6 className="card-title">{name}</h6>
                   <h5 className="card-title">{glass}</h5>
-                  <p className="card-text">{info}</p>
+
+                  <pp className="card-text">{info}</pp>
                   <Link to={`/cocktail/${id}`}>
                     <button className="btn btn-info">Details</button>
                   </Link>
