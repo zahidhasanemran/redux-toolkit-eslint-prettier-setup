@@ -64,9 +64,33 @@
     directory run the following command to install lint-staged
   </li>
   <li>npx mrm@2 lint-staged</li>
-  <li></li>
-  <li></li>
-  <li></li>
+
+</ul>
+
+
+<h2>Setup jest and RTL with eslint and husky</h2>
+<p>https://dev.to/yvad60/setup-jest-and-react-testing-library-in-a-react-project-a-step-by-step-guide-1mf0</p>
+<ul>
+  <li>npm install --save-dev jest jest-environment-jsdom</li>
+  <li>You can configure Jest by adding jest entry in the package.json or add a file named jest.config.js in the root folder. To keep package.json clean we will use jest.config.js</li>
+  <li>Integrate Jest with React testing Library. in the root folder create a file named jest.setup.jsenter the following line of code</li>
+  <li>in the root folder create a file named jest.setup.jsenter the following line of code</li>
+  <li>import '@testing-library/jest-dom'</li>
+  <li>in the jest.config.js file we created earlier add another field of setupFilesAfterEnv and set it's value to be ['<rootDir>/jest.setup.js'] this will tell jest for every test we write it will load configuration from jest.setup.js i.e. use React testing libraly your jest.config.js should look like this</li>
+  <li>setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],</li>
+  <li>Integrate Jest with ESLint</li>
+  <li>In the second article we setup ESLint to help us clean code. By default if you use Jest with Eslint installed Eslint will give errors because with Jest tests we use some functions directly without importing them, and ESLint doesn't accept that, therefore we need to integrate Eslint with Jest
+
+    follow the following steps, if you don't have Eslint in your project you can skip this section
+    
+    Run the following command to install eslint-plugin-jest which will make Eslint recognise Jest code</li>
+  <li>npm install --save-dev eslint-plugin-jest</li>
+  <li>in the eslintrc.json add "jest" in the plugins array</li>
+  <li>in the eslintrc.json add "plugin:jest/recommended", in the extends to use recommended jest syntax</li>
+  <li>in the eslintrc.json in the env entry add "jest/globals": true to enable jest in our eslint environment</li>
+  <li>in the package.json in the script object add the following scripts</li>
+  <li>test: "jest",</li>
+  <li>coverage: "jest --coverage"</li>
   <li></li>
   <li></li>
   <li></li>
@@ -74,7 +98,7 @@
 
 <!-- 
 
-  1. React 18 useTransiton to check debounce in input
+  1. React 18 useTransiton to check debounce in input -   - Done
   2. Write test code with jest and react testing library
   3. write test code with cypress 
 

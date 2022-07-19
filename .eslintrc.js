@@ -4,8 +4,14 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
+    "jest/globals": true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "prettier",
+  ],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
@@ -13,7 +19,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["react"],
+  plugins: ["react", "jest"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
